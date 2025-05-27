@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.35.0">
+  <bpmn:process id="SignUpProcess" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_SignUp" name="User Initiates Sign-Up">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_FillForm" name="Fill Sign-Up Form&#10;(Email, Phone, Company, Username, Password)">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="Gateway_StartValidation" name="Start Email &#38; Phone Validation">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3a</bpmn:outgoing>
+      <bpmn:outgoing>Flow_3b</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Task_CheckEmailExists" name="Check Email&#10;for Duplication">
+      <bpmn:incoming>Flow_3a</bpmn:incoming>
+      <bpmn:outgoing>Flow_4a</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_EmailExists" name="Email Exists?">
+      <bpmn:incoming>Flow_4a</bpmn:incoming>
+      <bpmn:outgoing>Flow_5a_yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_5a_no</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_EmailExists" name="Registration Failed&#10;(Email Already Exists)">
+      <bpmn:incoming>Flow_5a_yes</bpmn:incoming>
+      <bpmn:errorEventDefinition />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_SendEmailOTP" name="Send Email&#10;OTP Verification">
+      <bpmn:incoming>Flow_5a_no</bpmn:incoming>
+      <bpmn:outgoing>Flow_6a</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Task_ValidateEmailOTP" name="User Validates&#10;Email OTP">
+      <bpmn:incoming>Flow_6a</bpmn:incoming>
+      <bpmn:outgoing>Flow_7a</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_EmailOTPValid" name="Email OTP Valid?">
+      <bpmn:incoming>Flow_7a</bpmn:incoming>
+      <bpmn:outgoing>Flow_8a_yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_8a_no</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_EmailOTPFailed" name="Registration Failed&#10;(Invalid Email OTP)">
+      <bpmn:incoming>Flow_8a_no</bpmn:incoming>
+      <bpmn:errorEventDefinition />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_SendPhoneOTP" name="Send Phone&#10;OTP Verification">
+      <bpmn:incoming>Flow_3b</bpmn:incoming>
+      <bpmn:outgoing>Flow_4b</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Task_ValidatePhoneOTP" name="User Validates&#10;Phone OTP">
+      <bpmn:incoming>Flow_4b</bpmn:incoming>
+      <bpmn:outgoing>Flow_5b</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_PhoneOTPValid" name="Phone OTP Valid?">
+      <bpmn:incoming>Flow_5b</bpmn:incoming>
+      <bpmn:outgoing>Flow_6b_yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_6b_no</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_PhoneOTPFailed" name="Registration Failed&#10;(Invalid Phone OTP)">
+      <bpmn:incoming>Flow_6b_no</bpmn:incoming>
+      <bpmn:errorEventDefinition />
+    </bpmn:endEvent>
+    <bpmn:parallelGateway id="Gateway_JoinValidation" name="Email &#38; Phone Validated">
+      <bpmn:incoming>Flow_8a_yes</bpmn:incoming>
+      <bpmn:incoming>Flow_6b_yes</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:serviceTask id="Task_ValidateAllInfo" name="Validate All Information&#10;(Company, Username, Email, Password)">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_CheckCompanyExists" name="Check Company Name&#10;for Duplication">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_CompanyExists" name="Company Exists?">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12_yes</bpmn:outgoing>
+      <bpmn:outgoing>Flow_12_no</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_CompanyExists" name="Registration Failed&#10;(Company Already Exists)">
+      <bpmn:incoming>Flow_12_yes</bpmn:incoming>
+      <bpmn:errorEventDefinition />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_CreateCompany" name="Create Company">
+      <bpmn:incoming>Flow_12_no</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_CreateUserProfile" name="Create User Profile&#10;as Admin">
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_SendWelcome" name="Send Welcome Message">
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_Success" name="Registration Completed&#10;Successfully">
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_SignUp" targetRef="Task_FillForm" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_FillForm" targetRef="Gateway_StartValidation" />
+    <bpmn:sequenceFlow id="Flow_3a" sourceRef="Gateway_StartValidation" targetRef="Task_CheckEmailExists" />
+    <bpmn:sequenceFlow id="Flow_3b" sourceRef="Gateway_StartValidation" targetRef="Task_SendPhoneOTP" />
+    <bpmn:sequenceFlow id="Flow_4a" sourceRef="Task_CheckEmailExists" targetRef="Gateway_EmailExists" />
+    <bpmn:sequenceFlow id="Flow_5a_yes" name="Yes" sourceRef="Gateway_EmailExists" targetRef="EndEvent_EmailExists" />
+    <bpmn:sequenceFlow id="Flow_5a_no" name="No" sourceRef="Gateway_EmailExists" targetRef="Task_SendEmailOTP" />
+    <bpmn:sequenceFlow id="Flow_6a" sourceRef="Task_SendEmailOTP" targetRef="Task_ValidateEmailOTP" />
+    <bpmn:sequenceFlow id="Flow_7a" sourceRef="Task_ValidateEmailOTP" targetRef="Gateway_EmailOTPValid" />
+    <bpmn:sequenceFlow id="Flow_8a_yes" name="Yes" sourceRef="Gateway_EmailOTPValid" targetRef="Gateway_JoinValidation" />
+    <bpmn:sequenceFlow id="Flow_8a_no" name="No" sourceRef="Gateway_EmailOTPValid" targetRef="EndEvent_EmailOTPFailed" />
+    <bpmn:sequenceFlow id="Flow_4b" sourceRef="Task_SendPhoneOTP" targetRef="Task_ValidatePhoneOTP" />
+    <bpmn:sequenceFlow id="Flow_5b" sourceRef="Task_ValidatePhoneOTP" targetRef="Gateway_PhoneOTPValid" />
+    <bpmn:sequenceFlow id="Flow_6b_yes" name="Yes" sourceRef="Gateway_PhoneOTPValid" targetRef="Gateway_JoinValidation" />
+    <bpmn:sequenceFlow id="Flow_6b_no" name="No" sourceRef="Gateway_PhoneOTPValid" targetRef="EndEvent_PhoneOTPFailed" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Gateway_JoinValidation" targetRef="Task_ValidateAllInfo" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ValidateAllInfo" targetRef="Task_CheckCompanyExists" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_CheckCompanyExists" targetRef="Gateway_CompanyExists" />
+    <bpmn:sequenceFlow id="Flow_12_yes" name="Yes" sourceRef="Gateway_CompanyExists" targetRef="EndEvent_CompanyExists" />
+    <bpmn:sequenceFlow id="Flow_12_no" name="No" sourceRef="Gateway_CompanyExists" targetRef="Task_CreateCompany" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_CreateCompany" targetRef="Task_CreateUserProfile" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="Task_CreateUserProfile" targetRef="Task_SendWelcome" />
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="Task_SendWelcome" targetRef="EndEvent_Success" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SignUpProcess">
+      <bpmndi:BPMNShape id="Gateway_JoinValidation_di" bpmnElement="Gateway_JoinValidation">
+        <dc:Bounds x="1205" y="405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1121" y="416" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ValidateAllInfo_di" bpmnElement="Task_ValidateAllInfo">
+        <dc:Bounds x="1300" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CheckCompanyExists_di" bpmnElement="Task_CheckCompanyExists">
+        <dc:Bounds x="1440" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_CompanyExists_di" bpmnElement="Gateway_CompanyExists" isMarkerVisible="true">
+        <dc:Bounds x="1585" y="405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1567" y="462" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_CompanyExists_di" bpmnElement="EndEvent_CompanyExists">
+        <dc:Bounds x="1592" y="340" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1574" y="300" width="73" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CreateCompany_di" bpmnElement="Task_CreateCompany">
+        <dc:Bounds x="1680" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CreateUserProfile_di" bpmnElement="Task_CreateUserProfile">
+        <dc:Bounds x="1820" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_SendWelcome_di" bpmnElement="Task_SendWelcome">
+        <dc:Bounds x="1960" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Success_di" bpmnElement="EndEvent_Success">
+        <dc:Bounds x="2102" y="412" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2089" y="455" width="62" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_PhoneOTPFailed_di" bpmnElement="EndEvent_PhoneOTPFailed">
+        <dc:Bounds x="962" y="662" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="945" y="705" width="71" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_PhoneOTPValid_di" bpmnElement="Gateway_PhoneOTPValid" isMarkerVisible="true">
+        <dc:Bounds x="955" y="575" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="950" y="537.5" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_SignUp_di" bpmnElement="StartEvent_SignUp">
+        <dc:Bounds x="172" y="412" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="158" y="455" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_FillForm_di" bpmnElement="Task_FillForm">
+        <dc:Bounds x="240" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_StartValidation_di" bpmnElement="Gateway_StartValidation">
+        <dc:Bounds x="395" y="405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="454.5" y="416" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_SendPhoneOTP_di" bpmnElement="Task_SendPhoneOTP">
+        <dc:Bounds x="510" y="560" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ValidatePhoneOTP_di" bpmnElement="Task_ValidatePhoneOTP">
+        <dc:Bounds x="730" y="560" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CheckEmailExists_di" bpmnElement="Task_CheckEmailExists">
+        <dc:Bounds x="480" y="268" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_EmailExists_di" bpmnElement="Gateway_EmailExists" isMarkerVisible="true">
+        <dc:Bounds x="635" y="283" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="626.5" y="343" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_SendEmailOTP_di" bpmnElement="Task_SendEmailOTP">
+        <dc:Bounds x="740" y="268" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_EmailExists_di" bpmnElement="EndEvent_EmailExists">
+        <dc:Bounds x="642" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="624" y="85" width="72" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ValidateEmailOTP_di" bpmnElement="Task_ValidateEmailOTP">
+        <dc:Bounds x="910" y="268" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_EmailOTPValid_di" bpmnElement="Gateway_EmailOTPValid" isMarkerVisible="true">
+        <dc:Bounds x="1105" y="283" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1087" y="340" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_EmailOTPFailed_di" bpmnElement="EndEvent_EmailOTPFailed">
+        <dc:Bounds x="1112" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1096" y="105" width="67" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="208" y="430" />
+        <di:waypoint x="240" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="340" y="430" />
+        <di:waypoint x="395" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3a_di" bpmnElement="Flow_3a">
+        <di:waypoint x="420" y="405" />
+        <di:waypoint x="420" y="308" />
+        <di:waypoint x="480" y="308" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3b_di" bpmnElement="Flow_3b">
+        <di:waypoint x="420" y="455" />
+        <di:waypoint x="420" y="600" />
+        <di:waypoint x="510" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4a_di" bpmnElement="Flow_4a">
+        <di:waypoint x="580" y="308" />
+        <di:waypoint x="635" y="308" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5a_yes_di" bpmnElement="Flow_5a_yes">
+        <di:waypoint x="660" y="283" />
+        <di:waypoint x="660" y="188" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="631" y="233" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5a_no_di" bpmnElement="Flow_5a_no">
+        <di:waypoint x="685" y="308" />
+        <di:waypoint x="740" y="308" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="705" y="283" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6a_di" bpmnElement="Flow_6a">
+        <di:waypoint x="840" y="308" />
+        <di:waypoint x="910" y="308" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7a_di" bpmnElement="Flow_7a">
+        <di:waypoint x="1010" y="308" />
+        <di:waypoint x="1105" y="308" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8a_yes_di" bpmnElement="Flow_8a_yes">
+        <di:waypoint x="1155" y="308" />
+        <di:waypoint x="1230" y="308" />
+        <di:waypoint x="1230" y="405" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1184" y="283" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8a_no_di" bpmnElement="Flow_8a_no">
+        <di:waypoint x="1130" y="283" />
+        <di:waypoint x="1130" y="208" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1128" y="203" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4b_di" bpmnElement="Flow_4b">
+        <di:waypoint x="610" y="600" />
+        <di:waypoint x="730" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5b_di" bpmnElement="Flow_5b">
+        <di:waypoint x="830" y="600" />
+        <di:waypoint x="955" y="600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6b_yes_di" bpmnElement="Flow_6b_yes">
+        <di:waypoint x="1005" y="600" />
+        <di:waypoint x="1230" y="600" />
+        <di:waypoint x="1230" y="455" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1109" y="575" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6b_no_di" bpmnElement="Flow_6b_no">
+        <di:waypoint x="980" y="625" />
+        <di:waypoint x="980" y="662" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="988" y="634" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="1255" y="430" />
+        <di:waypoint x="1300" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1400" y="430" />
+        <di:waypoint x="1440" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1540" y="430" />
+        <di:waypoint x="1585" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_yes_di" bpmnElement="Flow_12_yes">
+        <di:waypoint x="1610" y="405" />
+        <di:waypoint x="1610" y="376" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1616" y="381" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_no_di" bpmnElement="Flow_12_no">
+        <di:waypoint x="1635" y="430" />
+        <di:waypoint x="1680" y="430" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1650" y="405" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1780" y="430" />
+        <di:waypoint x="1820" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
+        <di:waypoint x="1920" y="430" />
+        <di:waypoint x="1960" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15">
+        <di:waypoint x="2060" y="430" />
+        <di:waypoint x="2102" y="430" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
