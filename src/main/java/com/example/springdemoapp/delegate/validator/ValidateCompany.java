@@ -1,12 +1,12 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.validator;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.slf4j.LoggerFactory;
 
-public class ValidatePhoneDuplication implements JavaDelegate {
+public class ValidateCompany  implements JavaDelegate {
 
-    private final org.slf4j.Logger logger = LoggerFactory.getLogger(ValidatePhoneDuplication.class);
+    private final org.slf4j.Logger logger = LoggerFactory.getLogger(ValidateCompany.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
@@ -14,14 +14,7 @@ public class ValidatePhoneDuplication implements JavaDelegate {
                 "activity name : " + delegateExecution.getCurrentActivityName() +
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
-        boolean exists = CheckisPhoneExists((String) delegateExecution.getVariable("email"));
-
-        delegateExecution.setVariable("isPhoneExists", exists);
-    }
-
-    boolean CheckisPhoneExists(String email) {
-        //
-        return false;
+        delegateExecution.setVariable("isAllValid" ,true);
     }
 
 }

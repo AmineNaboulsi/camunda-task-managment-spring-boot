@@ -14,13 +14,14 @@ public class SendPhoneVerification implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        HttpConnector http = Connectors.getConnector(HttpConnector.ID);
-        HttpRequest req =  http.createRequest();
-        req.post().url("http://localhost:8080/send-otp-validation").header("Content-Type", "application/json");
-        HttpResponse response =  req.execute();
+
+        //HttpConnector http = Connectors.getConnector(HttpConnector.ID);
+        //HttpRequest req =  http.createRequest();
+        //req.post().url("http://localhost:8080/send-otp-validation").header("Content-Type", "application/json");
+        //HttpResponse response =  req.execute();
+
         logger.info("Service Send phone verification Works \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +
-                "varibales : " + delegateExecution.getVariables() +
-                "response : " + response.getResponse() +"\n)\n");
+                "varibales : " + delegateExecution.getVariables() + "\n)\n");
     }
 }
