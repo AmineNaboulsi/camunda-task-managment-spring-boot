@@ -1,4 +1,4 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.action;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;

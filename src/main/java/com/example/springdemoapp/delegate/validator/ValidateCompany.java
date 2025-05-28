@@ -14,7 +14,8 @@ public class ValidateCompany  implements JavaDelegate {
                 "activity name : " + delegateExecution.getCurrentActivityName() +
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
-        delegateExecution.setVariable("isAllValid" ,true);
+
+        delegateExecution.setVariable("isCampanyExists" ,false);
     }
 
 }

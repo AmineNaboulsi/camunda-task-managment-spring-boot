@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -26,8 +27,8 @@ public class ProcessBPMNController {
     @Autowired
     private TaskService taskService;
 
-    @PostMapping("/start")
-    public ResponseEntity<?> startProcess(@RequestBody Map<String, Object> payload) {
+    @PostMapping("/start/{processname}")
+    public ResponseEntity<?> startProcess(@PathVariable String processname ,  @RequestBody Map<String, Object> payload) {
 
         /*
             We start by getting the user info UserId, email are requires for identification
@@ -36,21 +37,24 @@ public class ProcessBPMNController {
         try {
             String userId = (String) payload.get("userId");
             String email = (String) payload.get("email");
-            if (userId == null || email == null) {
+            if(userId == null)
+                userId = UUID.randomUUID().toString();
+
+            if (userId == null || email == null)
                 return ResponseEntity.badRequest().body("userId and email are required");
-            }
 
             /*
             Start my local newProcess-SignUp.bpmn file as an instance
              */
 
             ProcessInstance instance = runtimeService.startProcessInstanceByKey(
-                    "SignUpProcess",
+                    processname,
                     Map.of("userId", userId, "email", email)
             );
             logger.info("Started process with ID: {}", instance.getId());
             return ResponseEntity.ok(Map.of(
                     "processInstanceId", instance.getId(),
+                    "userId", userId,
                     "message", "Process started successfully"
             ));
         } catch (Exception e) {

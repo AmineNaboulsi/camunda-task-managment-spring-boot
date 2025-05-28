@@ -18,5 +18,14 @@ public class PhoneClientSerivce {
 
          */
             return false;
-        }
+    }
+
+    public boolean checkEmailOTP_Code(String OTP_Code) {
+
+        /*
+            we have two case to verifiy from teh variables locally stored or to user dashy api for the comparison
+         */
+        return false;
+    }
+
 }

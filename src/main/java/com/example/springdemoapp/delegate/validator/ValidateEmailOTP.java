@@ -14,12 +14,22 @@ public class ValidateEmailOTP implements JavaDelegate {
                 "activity name : " + delegateExecution.getCurrentActivityName() +
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
-        boolean exists = CheckOTPAndValidate((String) delegateExecution.getVariable("email"));
+
+        boolean exists = CheckOTPAndValidate(delegateExecution);
         delegateExecution.setVariable("isOTPEmailValid", exists);
+
     }
 
-    boolean CheckOTPAndValidate(String email) {
-        //
-        return true;
+    boolean CheckOTPAndValidate(DelegateExecution delegateExecution) {
+         /*
+        In this place we need to communicate with api dashy for the OTP VALIDATION
+        or we can use teh variables for teh OTP validation without storing, camunda does it for us
+         */
+
+        String emailOTP = delegateExecution.getVariable("email-OTP-code").toString();
+        String codesubmitedEmail = delegateExecution.getVariable("codesubmitedEmail").toString();
+
+
+        return emailOTP.equalsIgnoreCase(codesubmitedEmail) ? true : false;
     }
 }

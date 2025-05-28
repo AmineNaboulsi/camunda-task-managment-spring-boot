@@ -1,11 +1,7 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.Sender;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-import org.camunda.connect.Connectors;
-import org.camunda.connect.httpclient.HttpConnector;
-import org.camunda.connect.httpclient.HttpRequest;
-import org.camunda.connect.httpclient.HttpResponse;
 import org.slf4j.LoggerFactory;
 
 public class SendPhoneVerification implements JavaDelegate {
@@ -19,6 +15,8 @@ public class SendPhoneVerification implements JavaDelegate {
         //HttpRequest req =  http.createRequest();
         //req.post().url("http://localhost:8080/send-otp-validation").header("Content-Type", "application/json");
         //HttpResponse response =  req.execute();
+
+        delegateExecution.setVariable("phone-OTP-code", "0000");
 
         logger.info("Service Send phone verification Works \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +

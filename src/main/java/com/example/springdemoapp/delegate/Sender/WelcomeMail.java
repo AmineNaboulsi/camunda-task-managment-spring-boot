@@ -1,18 +1,19 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.Sender;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.slf4j.LoggerFactory;
 
-public class CreateCompany implements JavaDelegate {
+public class WelcomeMail implements JavaDelegate {
 
-    private final org.slf4j.Logger logger = LoggerFactory.getLogger(CreateCompany.class);
+    private final org.slf4j.Logger logger = LoggerFactory.getLogger(WelcomeMail.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        logger.info("Service Create Company Work \n(\n by :" +
+        logger.info("Service Mail Welcome  Work \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
     }
+
 }

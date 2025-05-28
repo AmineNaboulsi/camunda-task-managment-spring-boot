@@ -1,11 +1,7 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.Sender;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-import org.camunda.connect.Connectors;
-import org.camunda.connect.httpclient.HttpConnector;
-import org.camunda.connect.httpclient.HttpRequest;
-import org.camunda.connect.httpclient.HttpResponse;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -26,6 +22,9 @@ public class SendEmailVerification implements JavaDelegate {
 //        HttpRequest req =  http.createRequest();
 //        req.post().url("http://localhost:8080"+"/api/auth/send-email-validation?email="+email).header("Content-Type", "application/json");
 //        HttpResponse response =  req.execute();
+
+        delegateExecution.setVariable("email-OTP-code", "0000");
+
 
         logger.info("Service Send phone verification Works \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +

@@ -15,15 +15,20 @@ public class ValidatePhoneOTP implements JavaDelegate {
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
 
-        boolean exists = CheckValidatePhoneOTP((String) delegateExecution.getVariable("email"));
+        boolean exists = CheckValidatePhoneOTP(delegateExecution);
         delegateExecution.setVariable("isOTPPhoneValid", exists);
     }
 
-    boolean CheckValidatePhoneOTP(String email) {
+    boolean CheckValidatePhoneOTP(DelegateExecution delegateExecution) {
         /*
         In this place we need to communicate with api dashy for teh OTP VALIDATION
         or we can use teh variables for teh OTP validation without storing them manually camunda does it for us
          */
-        return true;
+        String PhoneOTP = delegateExecution.getVariable("phone-OTP-code").toString();
+        String codesubmitedPhone = delegateExecution.getVariable("codesubmitedPhone").toString();
+
+
+        return PhoneOTP.equalsIgnoreCase(codesubmitedPhone) ? true : false;
+
     }
 }
