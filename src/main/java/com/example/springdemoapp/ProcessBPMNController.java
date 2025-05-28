@@ -27,10 +27,10 @@ public class ProcessBPMNController {
         return "Test" ;
     }
 
-    @PostMapping("/start-signup")
+    @PostMapping("/start")
     public ResponseEntity<String> startSignup(@RequestBody Map<String, Object> payload) {
         ProcessInstance instance = runtimeService.startProcessInstanceByKey(
-                "Process_0kiyfro",
+                "Process_0kiyfro", //
                 payload
         );
         return ResponseEntity.ok("Started process with ID: " + instance.getId());
