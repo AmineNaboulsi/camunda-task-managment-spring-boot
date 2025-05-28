@@ -22,13 +22,13 @@ public class SendEmailVerification implements JavaDelegate {
         String email = ((String) delegateExecution.getVariable("email")) != null
                 ? (String) delegateExecution.getVariable("email")
                 : "";
-        HttpConnector http = Connectors.getConnector(HttpConnector.ID);
-        HttpRequest req =  http.createRequest();
-        req.post().url("http://localhost:8080"+"/api/auth/send-email-validation?email="+email).header("Content-Type", "application/json");
-        HttpResponse response =  req.execute();
+//        HttpConnector http = Connectors.getConnector(HttpConnector.ID);
+//        HttpRequest req =  http.createRequest();
+//        req.post().url("http://localhost:8080"+"/api/auth/send-email-validation?email="+email).header("Content-Type", "application/json");
+//        HttpResponse response =  req.execute();
+
         logger.info("Service Send phone verification Works \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +
-                "varibales : " + delegateExecution.getVariables() +
-                "response : " + response.getResponse() +"\n)\n");
+                "varibales : " + delegateExecution.getVariables() + "\n)\n");
     }
 }

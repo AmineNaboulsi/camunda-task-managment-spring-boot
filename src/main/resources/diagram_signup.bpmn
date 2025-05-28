@@ -93,7 +93,7 @@
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1pdglls" sourceRef="Activity_SaveUser" targetRef="Activity_0m5ecmg" />
     <bpmn:sequenceFlow id="Flow_0qt9x6i" sourceRef="Activity_0m5ecmg" targetRef="Event_0hhfs3e" />
-    <bpmn:serviceTask id="Activity_ValidateEmail" name="Validate Email Duplication" camunda:class="com.example.springdemoapp.delegate.ValidateEmailDuplication">
+    <bpmn:serviceTask id="Activity_ValidateEmail" name="Validate Email Duplication" camunda:class="com.example.springdemoapp.delegate.validator.ValidateEmailDuplication">
       <bpmn:incoming>Flow_179qhrl</bpmn:incoming>
       <bpmn:outgoing>Flow_17vmy5r</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -129,7 +129,7 @@
       <bpmn:outgoing>Flow_0we3wcj</bpmn:outgoing>
       <bpmn:outgoing>Flow_1oi4lvp</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="Activity_19vfxc8" name="Validate phone Duplication" camunda:class="com.example.springdemoapp.delegate.ValidatePhoneDuplication">
+    <bpmn:serviceTask id="Activity_19vfxc8" name="Validate phone Duplication" camunda:class="com.example.springdemoapp.delegate.validator.ValidatePhoneDuplication">
       <bpmn:incoming>Flow_1j8q6l3</bpmn:incoming>
       <bpmn:outgoing>Flow_1cb0xq8</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -140,7 +140,7 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_09spopg" sourceRef="Activity_0hetati" targetRef="Activity_14qbn8h" />
     <bpmn:sequenceFlow id="Flow_1sskt07" sourceRef="Activity_14qbn8h" targetRef="Gateway_OTPVerification" />
-    <bpmn:serviceTask id="Activity_0auzj3d" name="Validate link" camunda:class="com.example.springdemoapp.delegate.ValidateEmailLink">
+    <bpmn:serviceTask id="Activity_0auzj3d" name="Validate link" camunda:class="com.example.springdemoapp.delegate.validator.ValidateEmailOTP">
       <bpmn:incoming>Flow_07tsbdp</bpmn:incoming>
       <bpmn:outgoing>Flow_1dfmatt</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -160,7 +160,7 @@
       <bpmn:outgoing>Flow_0fwufyh</bpmn:outgoing>
       <bpmn:outgoing>Flow_1q5vx0e</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="Activity_14qbn8h" name="Validate OTP Code" camunda:class="com.example.springdemoapp.delegate.ValidatePhoneOTP">
+    <bpmn:serviceTask id="Activity_14qbn8h" name="Validate OTP Code" camunda:class="com.example.springdemoapp.delegate.validator.ValidatePhoneOTP">
       <bpmn:incoming>Flow_09spopg</bpmn:incoming>
       <bpmn:outgoing>Flow_1sskt07</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -174,7 +174,7 @@
       <bpmn:incoming>Flow_0fwufyh</bpmn:incoming>
       <bpmn:outgoing>Flow_09spopg</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="Activity_ValidateCompany" name="Validate Company" camunda:class="com.example.springdemoapp.delegate.ValidateCompany">
+    <bpmn:serviceTask id="Activity_ValidateCompany" name="Validate Company" camunda:class="com.example.springdemoapp.delegate.validator.ValidateCompany">
       <bpmn:incoming>Flow_0s1o6fz</bpmn:incoming>
       <bpmn:outgoing>Flow_18mfsj8</bpmn:outgoing>
     </bpmn:serviceTask>
