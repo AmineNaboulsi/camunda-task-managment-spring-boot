@@ -15,20 +15,32 @@ public class ValidatePhoneOTP implements JavaDelegate {
                 "activityid : " + delegateExecution.getCurrentActivityName()+
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
 
-        boolean exists = CheckValidatePhoneOTP(delegateExecution);
+        boolean exists = CheckOTPAndValidate(delegateExecution);
+
+        if(!exists)
+            delegateExecution.setVariable("errorMessage" , "Phone OTP is not valid");
+
+
         delegateExecution.setVariable("isOTPPhoneValid", exists);
     }
 
-    boolean CheckValidatePhoneOTP(DelegateExecution delegateExecution) {
-        /*
-        In this place we need to communicate with api dashy for teh OTP VALIDATION
-        or we can use teh variables for teh OTP validation without storing them manually camunda does it for us
-         */
-        String PhoneOTP = delegateExecution.getVariable("phone-OTP-code").toString();
-        String codesubmitedPhone = delegateExecution.getVariable("codesubmitedPhone").toString();
 
+    public boolean CheckOTPAndValidate(DelegateExecution delegateExecution) {
+    /*
+        in this place we need to communicate with api Dashy for the otp validation
+        or we can use the variables for the otp validation without storing — Camunda handles it for us.
+     */
 
-        return PhoneOTP.equalsIgnoreCase(codesubmitedPhone) ? true : false;
+        Object phoneOTPObj = delegateExecution.getVariable("phone-OTP-code");
+        Object codeSubmittedObj = delegateExecution.getVariable("codesubmitedPhone");
 
+        String phoneOTP = phoneOTPObj != null ? phoneOTPObj.toString() : "";
+        String codesubmitedEmail = codeSubmittedObj != null ? codeSubmittedObj.toString() : "";
+
+        if (phoneOTP.isEmpty() || codesubmitedEmail.isEmpty()) {
+            return false;
+        }
+
+        return phoneOTP.equalsIgnoreCase(codesubmitedEmail);
     }
 }

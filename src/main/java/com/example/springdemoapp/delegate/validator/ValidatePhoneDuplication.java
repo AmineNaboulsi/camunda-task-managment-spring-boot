@@ -26,7 +26,7 @@ public class ValidatePhoneDuplication implements JavaDelegate {
 
         boolean exists = phoneClientSerivce.checkPhoneDuplicate(phone);
         delegateExecution.setVariable("isPhoneExists", exists);
-        delegateExecution.setVariable("errorMessage", exists ? "Email already exists" : null);
+        delegateExecution.setVariable("errorMessage", exists ? "Phone already exists" : null);
 
         logger.info("Service Validate Company Work \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +

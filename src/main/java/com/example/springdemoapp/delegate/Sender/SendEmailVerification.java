@@ -15,15 +15,13 @@ public class SendEmailVerification implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
 
-        String email = ((String) delegateExecution.getVariable("email")) != null
-                ? (String) delegateExecution.getVariable("email")
-                : "";
-//        HttpConnector http = Connectors.getConnector(HttpConnector.ID);
-//        HttpRequest req =  http.createRequest();
-//        req.post().url("http://localhost:8080"+"/api/auth/send-email-validation?email="+email).header("Content-Type", "application/json");
-//        HttpResponse response =  req.execute();
+        /*
+            in this part we need to communicate with dashy api for OTP code sender
+            in my case am using a simple 0000 test
+         */
 
         delegateExecution.setVariable("email-OTP-code", "0000");
+        delegateExecution.setVariable("email-Otp-CreatedAt", System.currentTimeMillis());
 
 
         logger.info("Service Send phone verification Works \n(\n by :" +

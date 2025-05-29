@@ -163,4 +163,17 @@ public class ProcessBPMNController {
             return ResponseEntity.badRequest().body(Map.of("error", "Failed to fetch tasks: " + e.getMessage()));
         }
     }
+
+    @GetMapping("/process/{processInstanceId}/variables")
+    public ResponseEntity<?> getProcessVariables(@PathVariable String processInstanceId) {
+        try {
+            Map<String, Object> variables = runtimeService.getVariables(processInstanceId);
+            logger.info("Retrieved variables for process instance {}: {}", processInstanceId, variables);
+            return ResponseEntity.ok(variables);
+        } catch (Exception e) {
+            logger.error("Failed to fetch variables for process instance {}: {}", processInstanceId, e.getMessage());
+            return ResponseEntity.badRequest().body(Map.of("error", "Failed to fetch variables: " + e.getMessage()));
+        }
+    }
+
 }

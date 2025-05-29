@@ -16,20 +16,31 @@ public class ValidateEmailOTP implements JavaDelegate {
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
 
         boolean exists = CheckOTPAndValidate(delegateExecution);
+
+        if(!exists)
+            delegateExecution.setVariable("errorMessage" , "Email OTP is not valid");
+
         delegateExecution.setVariable("isOTPEmailValid", exists);
 
     }
 
-    boolean CheckOTPAndValidate(DelegateExecution delegateExecution) {
-         /*
-        In this place we need to communicate with api dashy for the OTP VALIDATION
-        or we can use teh variables for teh OTP validation without storing, camunda does it for us
-         */
+    public boolean CheckOTPAndValidate(DelegateExecution delegateExecution) {
+    /*
+        in this place we need to communicate with api Dashy for the otp validation
+        or we can use the variables for the otp validation without storing — Camunda handles it for us.
+     */
 
-        String emailOTP = delegateExecution.getVariable("email-OTP-code").toString();
-        String codesubmitedEmail = delegateExecution.getVariable("codesubmitedEmail").toString();
+        Object emailOTPObj = delegateExecution.getVariable("email-OTP-code");
+        Object codeSubmittedObj = delegateExecution.getVariable("codesubmitedEmail");
 
+        String emailOTP = emailOTPObj != null ? emailOTPObj.toString() : "";
+        String codesubmitedEmail = codeSubmittedObj != null ? codeSubmittedObj.toString() : "";
 
-        return emailOTP.equalsIgnoreCase(codesubmitedEmail) ? true : false;
+        if (emailOTP.isEmpty() || codesubmitedEmail.isEmpty()) {
+            return false;
+        }
+
+        return emailOTP.equalsIgnoreCase(codesubmitedEmail);
     }
+
 }

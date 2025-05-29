@@ -9,12 +9,13 @@ public class CampanyClientService {
     @Value("${shared.auth-servie}")
     private String AuthServiceUrl;
 
-    public boolean checkCampanyNameDuplicate(String email) {
+    public boolean checkCampanyNameDuplicate(String campanyname) {
 
         /*
             in this case we need to fetch from dashy api and check if campany name are exists or not
 
          */
+
         return false;
     }
 }

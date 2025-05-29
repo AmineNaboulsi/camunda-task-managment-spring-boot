@@ -68,7 +68,7 @@
     <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_ValidateAllInfo" targetRef="Task_CheckCompanyExists" />
     <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_CheckCompanyExists" targetRef="Gateway_CompanyExists" />
     <bpmn:sequenceFlow id="Flow_12_no" name="No" sourceRef="Gateway_CompanyExists" targetRef="Task_CreateCompany">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{!isCampanyExists}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{!isCampanyExists &amp;&amp; AllVerifyed}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_CreateCompany" targetRef="Task_CreateUserProfile" />
     <bpmn:sequenceFlow id="Flow_15" sourceRef="Task_SendWelcome" targetRef="EndEvent_Success" />
@@ -129,10 +129,6 @@
     <bpmn:sequenceFlow id="Flow_19cwe4t" sourceRef="Gateway_CompanyExists" targetRef="Task_FillForm">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{isCampanyExists}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Task_ValidateAllInfo" name="Validate All Information" camunda:class="com.example.springdemoapp.delegate.validator.ValidateAllUserInfos">
-      <bpmn:incoming>Flow_03r8nsw</bpmn:incoming>
-      <bpmn:outgoing>Flow_10</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_CompanyExists" name="Company Exists?">
       <bpmn:incoming>Flow_11</bpmn:incoming>
       <bpmn:outgoing>Flow_12_no</bpmn:outgoing>
@@ -142,6 +138,10 @@
       <bpmn:incoming>Flow_10</bpmn:incoming>
       <bpmn:outgoing>Flow_11</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_ValidateAllInfo" name="Validate All Information" camunda:class="com.example.springdemoapp.delegate.validator.ValidateAllUserInfos">
+      <bpmn:incoming>Flow_03r8nsw</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:serviceTask id="Task_CreateCompany" name="Create Company" camunda:class="com.example.springdemoapp.delegate.action.CreateCompany">
       <bpmn:incoming>Flow_12_no</bpmn:incoming>
       <bpmn:outgoing>Flow_13</bpmn:outgoing>
@@ -150,10 +150,10 @@
       <bpmn:incoming>Flow_13</bpmn:incoming>
       <bpmn:outgoing>Flow_14</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_SendWelcome" name="Send a peeding alert for admin approved" camunda:assignee="${userId}">
+    <bpmn:serviceTask id="Task_SendWelcome" name="Send a peeding alert for admin approved" camunda:class="com.example.springdemoapp.delegate.Sender.MailAccountCreation">
       <bpmn:incoming>Flow_14</bpmn:incoming>
       <bpmn:outgoing>Flow_15</bpmn:outgoing>
-    </bpmn:userTask>
+    </bpmn:serviceTask>
     <bpmn:endEvent id="EndEvent_Success" name="Registration Completed&#10;Successfully">
       <bpmn:incoming>Flow_15</bpmn:incoming>
     </bpmn:endEvent>
@@ -161,7 +161,7 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_15wmdha">
       <bpmndi:BPMNShape id="Participant_03rsazl_di" bpmnElement="Participant_03rsazl" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="2440" height="640" />
+        <dc:Bounds x="160" y="80" width="2270" height="640" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_ValidateEmailOTP_di" bpmnElement="Task_ValidateEmailOTP">
@@ -242,33 +242,32 @@
           <dc:Bounds x="1385" y="537" width="59" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_ValidateAllInfo_di" bpmnElement="Task_ValidateAllInfo">
-        <dc:Bounds x="1630" y="270" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_CompanyExists_di" bpmnElement="Gateway_CompanyExists" isMarkerVisible="true" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
-        <dc:Bounds x="1915" y="375" width="50" height="50" />
+        <dc:Bounds x="1745" y="375" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1897" y="435" width="86" height="14" />
+          <dc:Bounds x="1727" y="435" width="86" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_CheckCompanyExists_di" bpmnElement="Task_CheckCompanyExists">
-        <dc:Bounds x="1780" y="270" width="100" height="80" />
+        <dc:Bounds x="1720" y="248" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_CreateCompany_di" bpmnElement="Task_CreateCompany">
-        <dc:Bounds x="2040" y="360" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_19krd0b_di" bpmnElement="Task_CreateUserProfile">
-        <dc:Bounds x="2200" y="360" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0sho1bl_di" bpmnElement="Task_SendWelcome">
-        <dc:Bounds x="2350" y="360" width="100" height="80" />
+      <bpmndi:BPMNShape id="Task_ValidateAllInfo_di" bpmnElement="Task_ValidateAllInfo">
+        <dc:Bounds x="1570" y="248" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_CreateCompany_di" bpmnElement="Task_CreateCompany">
+        <dc:Bounds x="1870" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19krd0b_di" bpmnElement="Task_CreateUserProfile">
+        <dc:Bounds x="2030" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1vi14a8_di" bpmnElement="Task_SendWelcome">
+        <dc:Bounds x="2190" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_Success_di" bpmnElement="EndEvent_Success" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
-        <dc:Bounds x="2522" y="382" width="36" height="36" />
+        <dc:Bounds x="2352" y="382" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2509" y="425" width="62" height="40" />
+          <dc:Bounds x="2339" y="425" width="62" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0syx0ey_di" bpmnElement="Flow_0syx0ey">
@@ -276,10 +275,9 @@
         <di:waypoint x="1420" y="390" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_03r8nsw_di" bpmnElement="Flow_03r8nsw">
-        <di:waypoint x="1520" y="370" />
-        <di:waypoint x="1565" y="370" />
-        <di:waypoint x="1565" y="310" />
-        <di:waypoint x="1630" y="310" />
+        <di:waypoint x="1470" y="350" />
+        <di:waypoint x="1470" y="288" />
+        <di:waypoint x="1570" y="288" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_6a_di" bpmnElement="Flow_6a">
         <di:waypoint x="950" y="210" />
@@ -337,32 +335,31 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
-        <di:waypoint x="1730" y="310" />
-        <di:waypoint x="1780" y="310" />
+        <di:waypoint x="1670" y="288" />
+        <di:waypoint x="1720" y="288" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
-        <di:waypoint x="1880" y="310" />
-        <di:waypoint x="1940" y="310" />
-        <di:waypoint x="1940" y="375" />
+        <di:waypoint x="1770" y="328" />
+        <di:waypoint x="1770" y="375" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_12_no_di" bpmnElement="Flow_12_no" bioc:stroke="#205022" color:border-color="#205022">
-        <di:waypoint x="1965" y="400" />
-        <di:waypoint x="2040" y="400" />
+        <di:waypoint x="1795" y="400" />
+        <di:waypoint x="1870" y="400" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1985" y="379" width="15" height="14" />
+          <dc:Bounds x="1815" y="379" width="15" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
-        <di:waypoint x="2140" y="400" />
-        <di:waypoint x="2200" y="400" />
+        <di:waypoint x="1970" y="400" />
+        <di:waypoint x="2030" y="400" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15">
-        <di:waypoint x="2450" y="400" />
-        <di:waypoint x="2522" y="400" />
+        <di:waypoint x="2290" y="400" />
+        <di:waypoint x="2352" y="400" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
-        <di:waypoint x="2300" y="400" />
-        <di:waypoint x="2350" y="400" />
+        <di:waypoint x="2130" y="400" />
+        <di:waypoint x="2190" y="400" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1xitmra_di" bpmnElement="Flow_1xitmra">
         <di:waypoint x="258" y="380" />
@@ -435,7 +432,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_19cwe4t_di" bpmnElement="Flow_19cwe4t" bioc:stroke="#831311" color:border-color="#831311">
-        <di:waypoint x="1915" y="400" />
+        <di:waypoint x="1745" y="400" />
         <di:waypoint x="1520" y="400" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

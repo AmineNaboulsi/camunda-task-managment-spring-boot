@@ -4,15 +4,13 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.slf4j.LoggerFactory;
 
-public class WelcomeMail implements JavaDelegate {
+public class MailAccountCreation implements JavaDelegate {
 
-    private final org.slf4j.Logger logger = LoggerFactory.getLogger(WelcomeMail.class);
+    private final org.slf4j.Logger logger = LoggerFactory.getLogger(MailAccountCreation.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        logger.info("Service Mail Welcome  Work \n(\n by :" +
-                "activity name : " + delegateExecution.getCurrentActivityName() +
-                "activityid : " + delegateExecution.getCurrentActivityName()+
+        logger.info("Service Mail Account Creation Work \n(\n by :" +
                 "varibales : " + delegateExecution.getVariables() + "\n)\n");
     }
 

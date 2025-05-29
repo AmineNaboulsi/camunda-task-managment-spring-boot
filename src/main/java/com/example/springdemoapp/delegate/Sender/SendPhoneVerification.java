@@ -11,12 +11,13 @@ public class SendPhoneVerification implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
 
-        //HttpConnector http = Connectors.getConnector(HttpConnector.ID);
-        //HttpRequest req =  http.createRequest();
-        //req.post().url("http://localhost:8080/send-otp-validation").header("Content-Type", "application/json");
-        //HttpResponse response =  req.execute();
+         /*
+            in this part we need to communicate with dashy api for OTP code sender
+            in my case am using a simple 0000 test
+         */
 
         delegateExecution.setVariable("phone-OTP-code", "0000");
+        delegateExecution.setVariable("phone-Otp-CreatedAt", System.currentTimeMillis());
 
         logger.info("Service Send phone verification Works \n(\n by :" +
                 "activity name : " + delegateExecution.getCurrentActivityName() +
