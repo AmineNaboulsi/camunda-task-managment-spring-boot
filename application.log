@@ -1,0 +1,321 @@
+2025-05-29T02:05:52.397+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T02:05:52.561+01:00  INFO 5564 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T02:05:52.568+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T02:05:52.568+01:00  INFO 5564 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T02:05:52.570+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T02:05:52.570+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:05:52.572+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T02:05:52.574+01:00  INFO 5564 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T02:05:56.927+01:00  INFO 14348 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 14348 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T02:05:56.929+01:00  INFO 14348 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T02:05:57.480+01:00  INFO 14348 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T02:05:57.504+01:00  INFO 14348 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2025-05-29T02:05:57.908+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T02:05:57.919+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T02:05:57.919+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T02:05:57.983+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T02:05:57.983+01:00  INFO 14348 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1019 ms
+2025-05-29T02:05:58.187+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T02:05:58.234+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T02:05:58.260+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T02:05:58.480+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T02:05:58.506+01:00  INFO 14348 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T02:05:58.627+01:00  INFO 14348 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@525b8922
+2025-05-29T02:05:58.629+01:00  INFO 14348 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T02:05:58.683+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T02:05:58.985+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T02:05:58.989+01:00  INFO 14348 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:05:59.044+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T02:05:59.100+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T02:06:00.181+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T02:06:00.183+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T02:06:00.184+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T02:06:00.184+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T02:06:00.184+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T02:06:00.190+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T02:06:00.381+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@2e847e71)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@77307b51, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T02:06:02.000+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T02:06:02.002+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T02:06:02.158+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T02:06:02.436+01:00  WARN 14348 --- [Spring-Demo-App] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-29T02:06:02.550+01:00  WARN 14348 --- [Spring-Demo-App] [main] o.s.w.s.resource.ResourceHandlerUtils    : Appended trailing slash to static resource location: classpath:/META-INF/resources/webjars/camunda/
+2025-05-29T02:06:02.624+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazyProcessEnginesFilter@6393bf8b
+2025-05-29T02:06:02.674+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazySecurityFilter@1f87607c
+2025-05-29T02:06:02.788+01:00  INFO 14348 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-29T02:06:02.796+01:00  INFO 14348 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Started SpringDemoAppApplication in 6.275 seconds (process running for 6.836)
+2025-05-29T02:06:02.799+01:00  INFO 14348 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.jobexecutor       : ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor].
+2025-05-29T02:06:02.800+01:00  INFO 14348 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14018 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] starting to acquire jobs
+2025-05-29T02:07:40.554+01:00  INFO 14348 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-29T02:07:40.554+01:00  INFO 14348 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-29T02:07:40.555+01:00  INFO 14348 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-29T02:07:40.693+01:00  INFO 14348 --- [Spring-Demo-App] [http-nio-8081-exec-1] c.e.s.d.v.ValidatePhoneDuplication       : Started process with ID: 51725b4d-3c29-11f0-931c-8e8d28f742c0
+2025-05-29T02:07:59.310+01:00  INFO 14348 --- [Spring-Demo-App] [http-nio-8081-exec-4] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 51725b4d-3c29-11f0-931c-8e8d28f742c0: {
+  userId => Value 'ec6edcfd-9460-4205-9bad-6d1d37946911' of type 'PrimitiveValueType[string]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T02:08:19.255+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T02:08:19.409+01:00  INFO 14348 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T02:08:19.416+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T02:08:19.417+01:00  INFO 14348 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T02:08:19.418+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T02:08:19.418+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:08:19.420+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T02:08:19.422+01:00  INFO 14348 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T02:23:37.978+01:00  INFO 15540 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 15540 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T02:23:37.980+01:00  INFO 15540 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T02:23:38.662+01:00  INFO 15540 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T02:23:38.687+01:00  INFO 15540 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2025-05-29T02:23:39.231+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T02:23:39.247+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T02:23:39.248+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T02:23:39.326+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T02:23:39.326+01:00  INFO 15540 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1308 ms
+2025-05-29T02:23:39.632+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T02:23:39.724+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T02:23:39.765+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T02:23:40.288+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T02:23:40.354+01:00  INFO 15540 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T02:23:40.585+01:00  INFO 15540 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4eb1943b
+2025-05-29T02:23:40.587+01:00  INFO 15540 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T02:23:40.668+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T02:23:41.058+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T02:23:41.062+01:00  INFO 15540 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:23:41.119+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T02:23:41.183+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T02:23:42.034+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T02:23:42.038+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T02:23:42.038+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T02:23:42.038+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T02:23:42.039+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T02:23:42.048+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T02:23:42.276+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@782143e8)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@15549dd7, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T02:23:44.132+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T02:23:44.134+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T02:23:44.363+01:00  INFO 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T02:23:44.616+01:00 ERROR 15540 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.context           : ENGINE-16004 Exception while closing command context: ENGINE-09005 Could not parse BPMN process. Errors: 
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 162 | column 78
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 177 | column 78
+
+org.camunda.bpm.engine.ParseException: ENGINE-09005 Could not parse BPMN process. Errors: 
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 162 | column 78
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 177 | column 78
+	at org.camunda.bpm.engine.impl.util.EngineUtilLogger.exceptionDuringParsing(EngineUtilLogger.java:66) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.util.xml.Parse.throwExceptionForErrors(Parse.java:240) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.execute(BpmnParse.java:354) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer.transformDefinitions(BpmnDeployer.java:104) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.transformResource(AbstractDefinitionDeployer.java:99) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.parseDefinitionResources(AbstractDefinitionDeployer.java:74) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.deploy(AbstractDefinitionDeployer.java:64) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:54) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:51) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:559) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:547) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer.deploy(CacheDeployer.java:51) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.DeploymentCache.deploy(DeploymentCache.java:71) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.entity.DeploymentManager.insertDeployment(DeploymentManager.java:64) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.deploy(DeployCmd.java:258) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.lambda$doExecute$0(DeployCmd.java:155) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:559) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:547) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.doExecute(DeployCmd.java:141) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:101) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:81) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:28) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:111) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:72) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-6.2.6.jar:6.2.6]
+	at org.camunda.bpm.engine.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:72) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.ProcessApplicationContextInterceptor.execute(ProcessApplicationContextInterceptor.java:70) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandCounterInterceptor.execute(CommandCounterInterceptor.java:34) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:33) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.ExceptionCodeInterceptor.execute(ExceptionCodeInterceptor.java:55) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.RepositoryServiceImpl.deployWithResult(RepositoryServiceImpl.java:104) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deployWithResult(DeploymentBuilderImpl.java:270) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deploy(DeploymentBuilderImpl.java:266) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionsProcessEngineConfiguration.autoDeployResources(SpringTransactionsProcessEngineConfiguration.java:156) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionsProcessEngineConfiguration.buildProcessEngine(SpringTransactionsProcessEngineConfiguration.java:67) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:55) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:34) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:186) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:125) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1896) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1308) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:349) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1739) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1367) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1197) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.4.5.jar:3.4.5]
+	at com.example.springdemoapp.SpringDemoAppApplication.main(SpringDemoAppApplication.java:10) ~[classes/:na]
+
+2025-05-29T02:23:44.625+01:00  WARN 15540 --- [Spring-Demo-App] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'processBPMNController': Unsatisfied dependency expressed through field 'runtimeService': Error creating bean with name 'org.camunda.bpm.engine.spring.SpringProcessEngineServicesConfiguration': Unsatisfied dependency expressed through field 'processEngine': Error creating bean with name 'processEngineFactoryBean': FactoryBean threw exception on object creation
+2025-05-29T02:23:44.627+01:00  INFO 15540 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:23:44.629+01:00  INFO 15540 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T02:23:44.632+01:00  INFO 15540 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T02:23:44.635+01:00  INFO 15540 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-29T02:23:44.646+01:00  INFO 15540 --- [Spring-Demo-App] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-29T02:23:44.671+01:00 ERROR 15540 --- [Spring-Demo-App] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'processBPMNController': Unsatisfied dependency expressed through field 'runtimeService': Error creating bean with name 'org.camunda.bpm.engine.spring.SpringProcessEngineServicesConfiguration': Unsatisfied dependency expressed through field 'processEngine': Error creating bean with name 'processEngineFactoryBean': FactoryBean threw exception on object creation
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1221) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1187) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351) ~[spring-boot-3.4.5.jar:3.4.5]
+	at com.example.springdemoapp.SpringDemoAppApplication.main(SpringDemoAppApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.camunda.bpm.engine.spring.SpringProcessEngineServicesConfiguration': Unsatisfied dependency expressed through field 'processEngine': Error creating bean with name 'processEngineFactoryBean': FactoryBean threw exception on object creation
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1451) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1367) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1197) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.6.jar:6.2.6]
+	... 22 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'processEngineFactoryBean': FactoryBean threw exception on object creation
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:192) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:125) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1896) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1308) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:349) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1739) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.6.jar:6.2.6]
+	... 44 common frames omitted
+Caused by: org.camunda.bpm.engine.ParseException: ENGINE-09005 Could not parse BPMN process. Errors: 
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 162 | column 78
+* One of the attributes 'class', 'delegateExpression', 'type', or 'expression' is mandatory on serviceTask. If you are using a connector, make sure theconnect process engine plugin is registered with the process engine. | resource C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn | line 177 | column 78
+	at org.camunda.bpm.engine.impl.util.EngineUtilLogger.exceptionDuringParsing(EngineUtilLogger.java:66) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.util.xml.Parse.throwExceptionForErrors(Parse.java:240) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.execute(BpmnParse.java:354) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.bpmn.deployer.BpmnDeployer.transformDefinitions(BpmnDeployer.java:104) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.transformResource(AbstractDefinitionDeployer.java:99) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.parseDefinitionResources(AbstractDefinitionDeployer.java:74) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.AbstractDefinitionDeployer.deploy(AbstractDefinitionDeployer.java:64) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:54) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer$1.call(CacheDeployer.java:51) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:559) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:547) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.CacheDeployer.deploy(CacheDeployer.java:51) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.deploy.cache.DeploymentCache.deploy(DeploymentCache.java:71) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.persistence.entity.DeploymentManager.insertDeployment(DeploymentManager.java:64) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.deploy(DeployCmd.java:258) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.lambda$doExecute$0(DeployCmd.java:155) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:559) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContext.runWithoutAuthorization(CommandContext.java:547) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.doExecute(DeployCmd.java:141) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:101) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.cmd.DeployCmd.execute(DeployCmd.java:81) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandExecutorImpl.execute(CommandExecutorImpl.java:28) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:111) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:72) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-6.2.6.jar:6.2.6]
+	at org.camunda.bpm.engine.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:72) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.ProcessApplicationContextInterceptor.execute(ProcessApplicationContextInterceptor.java:70) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.CommandCounterInterceptor.execute(CommandCounterInterceptor.java:34) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:33) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.interceptor.ExceptionCodeInterceptor.execute(ExceptionCodeInterceptor.java:55) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.RepositoryServiceImpl.deployWithResult(RepositoryServiceImpl.java:104) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deployWithResult(DeploymentBuilderImpl.java:270) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.impl.repository.DeploymentBuilderImpl.deploy(DeploymentBuilderImpl.java:266) ~[camunda-engine-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionsProcessEngineConfiguration.autoDeployResources(SpringTransactionsProcessEngineConfiguration.java:156) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.SpringTransactionsProcessEngineConfiguration.buildProcessEngine(SpringTransactionsProcessEngineConfiguration.java:67) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:55) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.camunda.bpm.engine.spring.ProcessEngineFactoryBean.getObject(ProcessEngineFactoryBean.java:34) ~[camunda-engine-spring-6-7.21.0.jar:7.21.0]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:186) ~[spring-beans-6.2.6.jar:6.2.6]
+	... 53 common frames omitted
+
