@@ -319,3 +319,413 @@ Caused by: org.camunda.bpm.engine.ParseException: ENGINE-09005 Could not parse B
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:186) ~[spring-beans-6.2.6.jar:6.2.6]
 	... 53 common frames omitted
 
+2025-05-29T02:25:39.139+01:00  INFO 7656 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 7656 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T02:25:39.141+01:00  INFO 7656 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T02:25:39.762+01:00  INFO 7656 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T02:25:39.782+01:00  INFO 7656 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2025-05-29T02:25:40.161+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T02:25:40.170+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T02:25:40.170+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T02:25:40.222+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T02:25:40.223+01:00  INFO 7656 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1043 ms
+2025-05-29T02:25:40.429+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T02:25:40.471+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T02:25:40.499+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T02:25:40.716+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T02:25:40.740+01:00  INFO 7656 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T02:25:40.855+01:00  INFO 7656 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@525b8922
+2025-05-29T02:25:40.857+01:00  INFO 7656 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T02:25:40.913+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T02:25:41.239+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T02:25:41.243+01:00  INFO 7656 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:25:41.297+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T02:25:41.354+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T02:25:42.142+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T02:25:42.144+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T02:25:42.144+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T02:25:42.144+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T02:25:42.144+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T02:25:42.149+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T02:25:42.298+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@2e847e71)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@77307b51, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T02:25:43.886+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T02:25:43.887+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T02:25:44.035+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T02:25:44.314+01:00  WARN 7656 --- [Spring-Demo-App] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-29T02:25:44.421+01:00  WARN 7656 --- [Spring-Demo-App] [main] o.s.w.s.resource.ResourceHandlerUtils    : Appended trailing slash to static resource location: classpath:/META-INF/resources/webjars/camunda/
+2025-05-29T02:25:44.554+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazySecurityFilter@6ddee60f
+2025-05-29T02:25:44.555+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazyProcessEnginesFilter@4aa31ffc
+2025-05-29T02:25:44.674+01:00  INFO 7656 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-29T02:25:44.683+01:00  INFO 7656 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Started SpringDemoAppApplication in 6.023 seconds (process running for 6.783)
+2025-05-29T02:25:44.686+01:00  INFO 7656 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.jobexecutor       : ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor].
+2025-05-29T02:25:44.688+01:00  INFO 7656 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14018 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] starting to acquire jobs
+2025-05-29T02:27:48.761+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T02:27:48.917+01:00  INFO 7656 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T02:27:48.925+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T02:27:48.925+01:00  INFO 7656 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T02:27:48.927+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T02:27:48.927+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T02:27:48.929+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T02:27:48.931+01:00  INFO 7656 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T08:45:15.046+01:00  INFO 16880 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 16880 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T08:45:15.048+01:00  INFO 16880 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T08:45:15.668+01:00  INFO 16880 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T08:45:15.690+01:00  INFO 16880 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2025-05-29T08:45:16.146+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T08:45:16.157+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T08:45:16.158+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T08:45:16.218+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T08:45:16.218+01:00  INFO 16880 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1130 ms
+2025-05-29T08:45:16.462+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T08:45:16.527+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T08:45:16.560+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T08:45:16.832+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T08:45:16.862+01:00  INFO 16880 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T08:45:17.010+01:00  INFO 16880 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@77ff14ce
+2025-05-29T08:45:17.012+01:00  INFO 16880 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T08:45:17.108+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T08:45:17.470+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T08:45:17.475+01:00  INFO 16880 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T08:45:17.532+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T08:45:17.595+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T08:45:18.492+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T08:45:18.496+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T08:45:18.496+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T08:45:18.496+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T08:45:18.496+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T08:45:18.502+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T08:45:18.700+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@42c9b1ee)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@7ae6927, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T08:45:20.384+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T08:45:20.386+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T08:45:20.558+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T08:45:20.687+01:00  WARN 16880 --- [Spring-Demo-App] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-29T08:45:20.800+01:00  WARN 16880 --- [Spring-Demo-App] [main] o.s.w.s.resource.ResourceHandlerUtils    : Appended trailing slash to static resource location: classpath:/META-INF/resources/webjars/camunda/
+2025-05-29T08:45:20.924+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazySecurityFilter@6ddee60f
+2025-05-29T08:45:20.925+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazyProcessEnginesFilter@4aa31ffc
+2025-05-29T08:45:21.039+01:00  INFO 16880 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-29T08:45:21.048+01:00  INFO 16880 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Started SpringDemoAppApplication in 6.484 seconds (process running for 7.211)
+2025-05-29T08:45:21.051+01:00  INFO 16880 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.jobexecutor       : ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor].
+2025-05-29T08:45:21.052+01:00  INFO 16880 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14018 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] starting to acquire jobs
+2025-05-29T08:46:02.289+01:00  INFO 16880 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-29T08:46:02.290+01:00  INFO 16880 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-29T08:46:02.291+01:00  INFO 16880 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-29T08:46:44.604+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T08:46:44.757+01:00  INFO 16880 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T08:46:44.767+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T08:46:44.767+01:00  INFO 16880 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T08:46:44.770+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T08:46:44.770+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T08:46:44.773+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T08:46:44.775+01:00  INFO 16880 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T08:46:50.087+01:00  INFO 24244 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 24244 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T08:46:50.090+01:00  INFO 24244 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T08:46:50.674+01:00  INFO 24244 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T08:46:50.692+01:00  INFO 24244 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2025-05-29T08:46:51.080+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T08:46:51.089+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T08:46:51.090+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T08:46:51.146+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T08:46:51.146+01:00  INFO 24244 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1017 ms
+2025-05-29T08:46:51.367+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T08:46:51.428+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T08:46:51.461+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T08:46:51.727+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T08:46:51.758+01:00  INFO 24244 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T08:46:51.881+01:00  INFO 24244 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1c92a549
+2025-05-29T08:46:51.882+01:00  INFO 24244 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T08:46:51.947+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T08:46:52.316+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T08:46:52.323+01:00  INFO 24244 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T08:46:52.385+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T08:46:52.446+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T08:46:53.252+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T08:46:53.255+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T08:46:53.255+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T08:46:53.255+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T08:46:53.255+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T08:46:53.262+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T08:46:53.450+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@560be8c0)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@21d15932, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T08:46:55.118+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T08:46:55.119+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T08:46:55.259+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T08:46:55.487+01:00  WARN 24244 --- [Spring-Demo-App] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-29T08:46:55.578+01:00  WARN 24244 --- [Spring-Demo-App] [main] o.s.w.s.resource.ResourceHandlerUtils    : Appended trailing slash to static resource location: classpath:/META-INF/resources/webjars/camunda/
+2025-05-29T08:46:55.644+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazyProcessEnginesFilter@4d7a64ca
+2025-05-29T08:46:55.688+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazySecurityFilter@3332c7a5
+2025-05-29T08:46:55.795+01:00  INFO 24244 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-29T08:46:55.802+01:00  INFO 24244 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Started SpringDemoAppApplication in 6.144 seconds (process running for 6.91)
+2025-05-29T08:46:55.803+01:00  INFO 24244 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.jobexecutor       : ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor].
+2025-05-29T08:46:55.805+01:00  INFO 24244 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14018 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] starting to acquire jobs
+2025-05-29T08:48:47.988+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T08:48:48.151+01:00  INFO 24244 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T08:48:48.159+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T08:48:48.159+01:00  INFO 24244 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T08:48:48.161+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T08:48:48.161+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T08:48:48.163+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T08:48:48.166+01:00  INFO 24244 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-29T08:48:51.449+01:00  INFO 17804 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Starting SpringDemoAppApplication using Java 19.0.2 with PID 17804 (C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes started by Amine in C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot)
+2025-05-29T08:48:51.451+01:00  INFO 17804 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-05-29T08:48:51.991+01:00  INFO 17804 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-29T08:48:52.011+01:00  INFO 17804 --- [Spring-Demo-App] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2025-05-29T08:48:52.407+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-29T08:48:52.417+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-29T08:48:52.418+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-29T08:48:52.486+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-29T08:48:52.486+01:00  INFO 17804 --- [Spring-Demo-App] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1001 ms
+2025-05-29T08:48:52.706+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-29T08:48:52.753+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-29T08:48:52.780+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-29T08:48:52.994+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-29T08:48:53.019+01:00  INFO 17804 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-29T08:48:53.130+01:00  INFO 17804 --- [Spring-Demo-App] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@733fae8
+2025-05-29T08:48:53.131+01:00  INFO 17804 --- [Spring-Demo-App] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-29T08:48:53.184+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.12
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-29T08:48:53.526+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-29T08:48:53.530+01:00  INFO 17804 --- [Spring-Demo-App] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T08:48:53.587+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB040 Setting up jobExecutor with corePoolSize=3, maxPoolSize:10
+2025-05-29T08:48:53.645+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.cfg               : ENGINE-12003 Plugin 'CompositeProcessEnginePlugin[genericPropertiesConfiguration, camundaProcessEngineConfiguration, camundaDatasourceConfiguration, camundaJobConfiguration, camundaHistoryConfiguration, camundaMetricsConfiguration, camundaAuthorizationConfiguration, camundaDeploymentConfiguration, createAdminUserConfiguration, failedJobConfiguration, eventPublisherPlugin, ApplicationContextClassloaderSwitchPlugin]' activated on process engine 'default'
+2025-05-29T08:48:54.440+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.spring.boot              : STARTER-SB021 Auto-Deploying resources: [file [C:\Users\Amine\eclipse-workspace\camunda-task-managment-spring-boot\target\classes\newProcess-SignUp.bpmn]]
+2025-05-29T08:48:54.442+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-001: Initialized Camunda Spring Boot Eventing Engine Plugin.
+2025-05-29T08:48:54.443+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-003: Task events will be published as Spring Events.
+2025-05-29T08:48:54.443+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-005: Execution events will be published as Spring Events.
+2025-05-29T08:48:54.443+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-009: Listeners will not be invoked if a skipCustomListeners API parameter is set to true by user.
+2025-05-29T08:48:54.448+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.event.EventPublisherPlugin   : EVENTING-007: History events will be published as Spring events.
+2025-05-29T08:48:54.599+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.feel.FeelEngine              : Engine created. [value-mapper: CompositeValueMapper(List(org.camunda.feel.impl.JavaValueMapper@217c6a1e)), function-provider: org.camunda.bpm.dmn.feel.impl.scala.function.CustomFunctionTransformer@7d0df326, clock: SystemClock, configuration: {externalFunctionsEnabled: false}]
+2025-05-29T08:48:56.275+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'http-connector' and class 'org.camunda.connect.httpclient.impl.HttpConnectorImpl': 'org.camunda.connect.httpclient.impl.HttpConnectorProviderImpl'
+2025-05-29T08:48:56.277+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.connect                  : CNCT-01004 Discovered provider for connector id 'soap-http-connector' and class 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorImpl': 'org.camunda.connect.httpclient.soap.impl.SoapHttpConnectorProviderImpl'
+2025-05-29T08:48:56.416+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.engine                   : ENGINE-00001 Process Engine default created.
+2025-05-29T08:48:56.560+01:00  WARN 17804 --- [Spring-Demo-App] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-29T08:48:56.669+01:00  WARN 17804 --- [Spring-Demo-App] [main] o.s.w.s.resource.ResourceHandlerUtils    : Appended trailing slash to static resource location: classpath:/META-INF/resources/webjars/camunda/
+2025-05-29T08:48:56.792+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazySecurityFilter@76d7881e
+2025-05-29T08:48:56.792+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.c.b.s.b.s.w.f.LazyInitRegistration     : lazy initialized org.camunda.bpm.spring.boot.starter.webapp.filter.LazyProcessEnginesFilter@25a94b55
+2025-05-29T08:48:56.900+01:00  INFO 17804 --- [Spring-Demo-App] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-29T08:48:56.907+01:00  INFO 17804 --- [Spring-Demo-App] [main] c.e.s.SpringDemoAppApplication           : Started SpringDemoAppApplication in 5.896 seconds (process running for 6.444)
+2025-05-29T08:48:56.909+01:00  INFO 17804 --- [Spring-Demo-App] [main] org.camunda.bpm.engine.jobexecutor       : ENGINE-14014 Starting up the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor].
+2025-05-29T08:48:56.911+01:00  INFO 17804 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14018 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] starting to acquire jobs
+2025-05-29T08:51:12.209+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-29T08:51:12.210+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-29T08:51:12.211+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-29T08:51:21.747+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-7] org.camunda.bpm.engine.identity          : ENGINE-27001 The user with id 'demo' is locked. The lock will expire at Thu May 29 08:51:24 WEST 2025
+2025-05-29T08:54:54.234+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-9] c.e.s.d.v.ValidatePhoneDuplication       : Started process with ID: 34f77737-3c62-11f0-8ce8-8e8d28f742c0
+2025-05-29T08:55:29.826+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-4] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:55:39.793+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-6] c.e.s.d.v.ValidateEmailDuplication       : Service Validate Email Dupliaction  
+(
+ by :activity name : Check Email
+for Duplicationactivityid : Check Email
+for Duplicationvaribales : {
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  errorMessage => Untyped 'null' value
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+}
+)
+
+2025-05-29T08:55:39.810+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-6] c.e.s.d.Sender.SendEmailVerification     : Service Send phone verification Works 
+(
+ by :activity name : Send Email
+OTP Verificationvaribales : {
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  errorMessage => Untyped 'null' value
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+)
+
+2025-05-29T08:55:39.842+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-6] c.e.s.d.v.ValidatePhoneDuplication       : Task 34fc3231-3c62-11f0-8ce8-8e8d28f742c0 completed successfully
+2025-05-29T08:55:54.206+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-3] c.e.s.d.v.ValidatePhoneDuplication       : Service Validate Company Work 
+(
+ by :activity name : Check Phone Number
+for Duplicationactivityid : Check Phone Number
+for Duplicationvaribales : {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  errorMessage => Untyped 'null' value
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+)
+
+2025-05-29T08:55:54.210+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-3] c.e.s.d.Sender.SendPhoneVerification     : Service Send phone verification Works 
+(
+ by :activity name : Send Phone
+OTP Verificationvaribales : {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+)
+
+2025-05-29T08:55:54.235+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-3] c.e.s.d.v.ValidatePhoneDuplication       : Task 34fd91c5-3c62-11f0-8ce8-8e8d28f742c0 completed successfully
+2025-05-29T08:56:20.453+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-2] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:37.156+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-9] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:39.547+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-5] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:47.934+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-8] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:49.380+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-7] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:50.660+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-4] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:51.808+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-6] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T08:57:52.761+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-3] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T09:05:30.601+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-10] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T09:24:34.063+01:00  INFO 17804 --- [Spring-Demo-App] [http-nio-8081-exec-8] c.e.s.d.v.ValidatePhoneDuplication       : Retrieved variables for process instance 34f77737-3c62-11f0-8ce8-8e8d28f742c0: {
+  isPhoneExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  isEmailExists => Value 'false' of type 'PrimitiveValueType[boolean]', isTransient=false
+  phone-Otp-CreatedAt => Value '1748505354210' of type 'PrimitiveValueType[long]', isTransient=false
+  errorMessage => Untyped 'null' value
+  phone-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  codesubmitedPhone => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+  userId => Value 'c6eb17ba-3722-4fbb-9f1a-b1cf329d6d18' of type 'PrimitiveValueType[string]', isTransient=false
+  email-Otp-CreatedAt => Value '1748505339809' of type 'PrimitiveValueType[long]', isTransient=false
+  email => Value 'naboulsiiamine@gmail.com' of type 'PrimitiveValueType[string]', isTransient=false
+  email-OTP-code => Value '0000' of type 'PrimitiveValueType[string]', isTransient=false
+}
+2025-05-29T09:58:24.862+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-29T09:58:25.025+01:00  INFO 17804 --- [Spring-Demo-App] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-29T09:58:25.043+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine.jobexecutor       : ENGINE-14015 Shutting down the JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]
+2025-05-29T09:58:25.044+01:00  INFO 17804 --- [Spring-Demo-App] [JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor]] org.camunda.bpm.engine.jobexecutor       : ENGINE-14020 JobExecutor[org.camunda.bpm.engine.spring.components.jobexecutor.SpringJobExecutor] stopped job acquisition
+2025-05-29T09:58:25.048+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] org.camunda.bpm.engine                   : ENGINE-00007 Process Engine default closed
+2025-05-29T09:58:25.049+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-29T09:58:25.065+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-29T09:58:25.069+01:00  INFO 17804 --- [Spring-Demo-App] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
