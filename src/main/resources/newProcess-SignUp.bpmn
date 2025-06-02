@@ -31,6 +31,7 @@
     <bpmn:userTask id="Request_Email_OTP" name="Request OTP Email validaion" camunda:assignee="${userId}">
       <bpmn:incoming>Flow_0kyw3im</bpmn:incoming>
       <bpmn:incoming>Flow_1uzu28z</bpmn:incoming>
+      <bpmn:incoming>Flow_1xyhn2t</bpmn:incoming>
       <bpmn:outgoing>Flow_0ivogq4</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Task_SendEmailOTP" name="Send Email&#10;OTP Verification" camunda:class="com.example.springdemoapp.delegate.SendEmailVerification">
@@ -96,6 +97,7 @@
     <bpmn:userTask id="Request_Phone_OTP" name="Request OTP Phone validaion" camunda:assignee="${userId}">
       <bpmn:incoming>Flow_0fc2mmv</bpmn:incoming>
       <bpmn:incoming>Flow_1elgl6d</bpmn:incoming>
+      <bpmn:incoming>Flow_1i5t315</bpmn:incoming>
       <bpmn:outgoing>Flow_13h8cm7</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Activity_17tmlg5" name="Check Phone Number&#10;for Duplication" camunda:class="com.example.springdemoapp.delegate.validator.ValidatePhoneDuplication">
@@ -157,11 +159,31 @@
     <bpmn:endEvent id="EndEvent_Success" name="Registration Completed&#10;Successfully">
       <bpmn:incoming>Flow_15</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:boundaryEvent id="Event_0iekah0" attachedToRef="Task_SendEmailOTP">
+      <bpmn:outgoing>Flow_1lv35ms</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1i3yzf6" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1lv35ms" sourceRef="Event_0iekah0" targetRef="Activity_089v7bb" />
+    <bpmn:serviceTask id="Activity_089v7bb" name="Delete OTP Email code">
+      <bpmn:incoming>Flow_1lv35ms</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xyhn2t</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1xyhn2t" sourceRef="Activity_089v7bb" targetRef="Request_Email_OTP" />
+    <bpmn:boundaryEvent id="Event_1dk527l" attachedToRef="Task_SendPhoneOTP">
+      <bpmn:outgoing>Flow_16tw1e8</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0ig9kn1" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_16tw1e8" sourceRef="Event_1dk527l" targetRef="Activity_1v9oxdg" />
+    <bpmn:serviceTask id="Activity_1v9oxdg">
+      <bpmn:incoming>Flow_16tw1e8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1i5t315</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1i5t315" sourceRef="Activity_1v9oxdg" targetRef="Request_Phone_OTP" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_15wmdha">
       <bpmndi:BPMNShape id="Participant_03rsazl_di" bpmnElement="Participant_03rsazl" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="2440" height="640" />
+        <dc:Bounds x="160" y="40" width="2440" height="680" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_ValidateEmailOTP_di" bpmnElement="Task_ValidateEmailOTP">
@@ -270,6 +292,19 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2509" y="425" width="62" height="40" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_089v7bb_di" bpmnElement="Activity_089v7bb" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="720" y="50" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v9oxdg_di" bpmnElement="Activity_1v9oxdg">
+        <dc:Bounds x="720" y="630" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0iekah0_di" bpmnElement="Event_0iekah0">
+        <dc:Bounds x="932" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1dk527l_di" bpmnElement="Event_1dk527l">
+        <dc:Bounds x="932" y="572" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0syx0ey_di" bpmnElement="Flow_0syx0ey">
         <di:waypoint x="1375" y="390" />
@@ -437,6 +472,26 @@
       <bpmndi:BPMNEdge id="Flow_19cwe4t_di" bpmnElement="Flow_19cwe4t" bioc:stroke="#831311" color:border-color="#831311">
         <di:waypoint x="1915" y="400" />
         <di:waypoint x="1520" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lv35ms_di" bpmnElement="Flow_1lv35ms">
+        <di:waypoint x="950" y="152" />
+        <di:waypoint x="950" y="90" />
+        <di:waypoint x="820" y="90" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xyhn2t_di" bpmnElement="Flow_1xyhn2t">
+        <di:waypoint x="720" y="90" />
+        <di:waypoint x="440" y="90" />
+        <di:waypoint x="440" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16tw1e8_di" bpmnElement="Flow_16tw1e8">
+        <di:waypoint x="950" y="608" />
+        <di:waypoint x="950" y="670" />
+        <di:waypoint x="820" y="670" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1i5t315_di" bpmnElement="Flow_1i5t315">
+        <di:waypoint x="720" y="670" />
+        <di:waypoint x="440" y="670" />
+        <di:waypoint x="440" y="530" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
