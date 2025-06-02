@@ -34,7 +34,7 @@
       <bpmn:incoming>Flow_1xyhn2t</bpmn:incoming>
       <bpmn:outgoing>Flow_0ivogq4</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="Task_SendEmailOTP" name="Send Email&#10;OTP Verification" camunda:class="com.example.springdemoapp.delegate.SendEmailVerification">
+    <bpmn:serviceTask id="Task_SendEmailOTP" name="Send Email&#10;OTP Verification" camunda:class="com.example.springdemoapp.delegate.Sender.SendEmailVerification">
       <bpmn:incoming>Flow_5a_no</bpmn:incoming>
       <bpmn:outgoing>Flow_6a</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -109,7 +109,7 @@
       <bpmn:outgoing>Flow_1gk1mcy</bpmn:outgoing>
       <bpmn:outgoing>Flow_1elgl6d</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="Task_SendPhoneOTP" name="Send Phone&#10;OTP Verification" camunda:class="com.example.springdemoapp.delegate.SendPhoneVerification">
+    <bpmn:serviceTask id="Task_SendPhoneOTP" name="Send Phone&#10;OTP Verification" camunda:class="com.example.springdemoapp.delegate.Sender.SendPhoneVerification">
       <bpmn:incoming>Flow_1gk1mcy</bpmn:incoming>
       <bpmn:outgoing>Flow_4b</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -144,41 +144,45 @@
       <bpmn:incoming>Flow_10</bpmn:incoming>
       <bpmn:outgoing>Flow_11</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_CreateCompany" name="Create Company" camunda:class="com.example.springdemoapp.delegate.CreateCompany">
+    <bpmn:serviceTask id="Task_CreateCompany" name="Create Company" camunda:class="com.example.springdemoapp.delegate.action.CreateCompany">
       <bpmn:incoming>Flow_12_no</bpmn:incoming>
       <bpmn:outgoing>Flow_13</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_CreateUserProfile" name="Create User Profile&#10;as Admin" camunda:class="com.example.springdemoapp.delegate.CreateUserAdmin">
+    <bpmn:serviceTask id="Task_CreateUserProfile" name="Create User Profile&#10;as Admin" camunda:class="com.example.springdemoapp.delegate.action.CreateUserAdmin">
       <bpmn:incoming>Flow_13</bpmn:incoming>
       <bpmn:outgoing>Flow_14</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="Task_SendWelcome" name="Send a peeding alert for admin approved" camunda:assignee="${userId}">
-      <bpmn:incoming>Flow_14</bpmn:incoming>
-      <bpmn:outgoing>Flow_15</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:endEvent id="EndEvent_Success" name="Registration Completed&#10;Successfully">
       <bpmn:incoming>Flow_15</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:boundaryEvent id="Event_0iekah0" attachedToRef="Task_SendEmailOTP">
       <bpmn:outgoing>Flow_1lv35ms</bpmn:outgoing>
-      <bpmn:timerEventDefinition id="TimerEventDefinition_1i3yzf6" />
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1i3yzf6">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_1lv35ms" sourceRef="Event_0iekah0" targetRef="Activity_089v7bb" />
-    <bpmn:serviceTask id="Activity_089v7bb" name="Delete OTP Email code">
+    <bpmn:serviceTask id="Activity_089v7bb" name="Delete Email  OTP" camunda:class="com.example.springdemoapp.delegate.action.CleanupOtpEmail">
       <bpmn:incoming>Flow_1lv35ms</bpmn:incoming>
       <bpmn:outgoing>Flow_1xyhn2t</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1xyhn2t" sourceRef="Activity_089v7bb" targetRef="Request_Email_OTP" />
     <bpmn:boundaryEvent id="Event_1dk527l" attachedToRef="Task_SendPhoneOTP">
       <bpmn:outgoing>Flow_16tw1e8</bpmn:outgoing>
-      <bpmn:timerEventDefinition id="TimerEventDefinition_0ig9kn1" />
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0ig9kn1">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_16tw1e8" sourceRef="Event_1dk527l" targetRef="Activity_1v9oxdg" />
-    <bpmn:serviceTask id="Activity_1v9oxdg">
+    <bpmn:serviceTask id="Activity_1v9oxdg" name="Delete phone  OTP code" camunda:class="com.example.springdemoapp.delegate.action.CleanupOtpPhone">
       <bpmn:incoming>Flow_16tw1e8</bpmn:incoming>
       <bpmn:outgoing>Flow_1i5t315</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1i5t315" sourceRef="Activity_1v9oxdg" targetRef="Request_Phone_OTP" />
+    <bpmn:serviceTask id="Task_SendWelcome" name="Send a peeding alert for admin approved" camunda:class="com.example.springdemoapp.delegate.Sender.MailAccountCreation">
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_15wmdha">
@@ -241,7 +245,7 @@
         <dc:Bounds x="390" y="450" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_17tmlg5_di" bpmnElement="Activity_17tmlg5">
+      <bpmndi:BPMNShape id="Activity_17tmlg5_di" bpmnElement="Activity_17tmlg5" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
         <dc:Bounds x="570" y="510" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -264,7 +268,7 @@
           <dc:Bounds x="1385" y="537" width="59" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_ValidateAllInfo_di" bpmnElement="Task_ValidateAllInfo">
+      <bpmndi:BPMNShape id="Task_ValidateAllInfo_di" bpmnElement="Task_ValidateAllInfo" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
         <dc:Bounds x="1630" y="270" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -274,7 +278,7 @@
           <dc:Bounds x="1897" y="435" width="86" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_CheckCompanyExists_di" bpmnElement="Task_CheckCompanyExists">
+      <bpmndi:BPMNShape id="Task_CheckCompanyExists_di" bpmnElement="Task_CheckCompanyExists" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
         <dc:Bounds x="1780" y="270" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_CreateCompany_di" bpmnElement="Task_CreateCompany">
@@ -282,10 +286,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_19krd0b_di" bpmnElement="Task_CreateUserProfile">
         <dc:Bounds x="2200" y="360" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0sho1bl_di" bpmnElement="Task_SendWelcome">
-        <dc:Bounds x="2350" y="360" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_Success_di" bpmnElement="EndEvent_Success" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
         <dc:Bounds x="2522" y="382" width="36" height="36" />
@@ -297,14 +297,18 @@
         <dc:Bounds x="720" y="50" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1v9oxdg_di" bpmnElement="Activity_1v9oxdg">
+      <bpmndi:BPMNShape id="Activity_1v9oxdg_di" bpmnElement="Activity_1v9oxdg" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
         <dc:Bounds x="720" y="630" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0iekah0_di" bpmnElement="Event_0iekah0">
-        <dc:Bounds x="932" y="152" width="36" height="36" />
+      <bpmndi:BPMNShape id="Activity_1xyj8ei_di" bpmnElement="Task_SendWelcome">
+        <dc:Bounds x="2350" y="360" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1dk527l_di" bpmnElement="Event_1dk527l">
         <dc:Bounds x="932" y="572" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0iekah0_di" bpmnElement="Event_0iekah0">
+        <dc:Bounds x="932" y="152" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0syx0ey_di" bpmnElement="Flow_0syx0ey">
         <di:waypoint x="1375" y="390" />

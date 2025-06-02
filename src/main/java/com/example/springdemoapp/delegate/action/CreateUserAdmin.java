@@ -1,9 +1,11 @@
-package com.example.springdemoapp.delegate;
+package com.example.springdemoapp.delegate.action;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CreateUserAdmin implements JavaDelegate {
 
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(CreateUserAdmin.class);
